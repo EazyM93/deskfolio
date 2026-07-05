@@ -1,0 +1,42 @@
+# Build outputs
+target/
+out/
+build/
+
+# Java and Maven
+*.class
+*.jar
+*.war
+*.ear
+.mvn/timing.properties
+
+# Native packaging outputs
+*.dmg
+*.pkg
+*.app/
+
+# Runtime data
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+logs/
+
+# IDE and OS files
+.idea/
+*.iml
+.DS_Store
+
+# Local-only AI workspace
+.ai/
+.claude/
+*.ai.log
+*session-summary*
+*task-tracking*
+*prompt-history*
+
+# Local environment
+.env
+.env.*
+!.env.example
