@@ -14,7 +14,7 @@ Status: ✅ Completed
 
 ## Milestone 1: Application Shell
 
-Status: ⚪ Not Started
+Status: ✅ Completed
 
 - JavaFX app entry point
 - Main window shell

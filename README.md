@@ -6,12 +6,13 @@ The application will be built with Java 26, JavaFX, Maven and SQLite. It is desi
 
 ## 📌 Project Status
 
-This repository is currently prepared for documentation-first, AI-assisted development.
+This repository is currently in early implementation after documentation-first preparation.
 
-It intentionally contains no application implementation code yet. The current repository defines:
+The current repository defines:
 
 - Architecture and engineering rules
 - Maven project structure
+- JavaFX application shell
 - Database design
 - UI specifications
 - Feature specifications

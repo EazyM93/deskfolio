@@ -59,6 +59,8 @@ Preferred shell:
 
 - Left sidebar navigation
 - Main content region
+- Icon-only sidebar collapse/restore control to the left of the current page title
+- Sidebar collapse and restore should use a short horizontal slide transition
 - Optional top toolbar for page-specific actions
 - Status/error area when needed
 

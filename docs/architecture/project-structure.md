@@ -67,10 +67,6 @@ deskfolio/
 
 ## Source Directory Intent
 
-No implementation code exists yet.
-
-When implementation begins:
-
 - `src/main/java`: Java application source organized by layer and feature.
 - `src/main/resources`: JavaFX FXML, CSS, icons, configuration defaults and Flyway migrations.
 - `src/main/resources/db/migration`: versioned Flyway SQL migrations.
