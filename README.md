@@ -2,17 +2,20 @@
 
 DeskFolio is a local-first native macOS desktop application for managing a personal investment portfolio.
 
-The application will be built with Java 26, JavaFX, Maven and SQLite. It is designed as a maintainable desktop product, not as a web application. The final distribution target is a normal macOS `.app` bundle that can be started with a double click.
+The application is built with Java 26, JavaFX, Maven and SQLite. It is designed as a maintainable desktop product, not as a web application. The final distribution target is a normal macOS `.app` bundle that can be started with a double click.
 
 ## 📌 Project Status
 
-This repository is currently in early implementation after documentation-first preparation.
+This repository is currently in active MVP implementation after documentation-first preparation.
 
 The current repository defines:
 
 - Architecture and engineering rules
 - Maven project structure
 - JavaFX application shell
+- SQLite and Flyway database foundation
+- Asset and transaction entry vertical slice
+- Transaction-derived dashboard MVP
 - Database design
 - UI specifications
 - Feature specifications
@@ -85,15 +88,35 @@ Local AI memory lives in ignored directories:
 
 These directories are intentionally excluded from Git so task state, session summaries, prompts and planning notes remain local-only.
 
-## 🚀 First Implementation Milestone
+## 🚀 MVP Implementation Scope
 
-The first implementation milestone is not to build the whole app. It is to create a thin vertical slice:
+The current MVP path is a thin vertical slice:
 
-1. Start a JavaFX desktop shell
-2. Initialize SQLite database with Flyway
-3. Add asset and transaction persistence
-4. Implement transaction entry flow
-5. Show dashboard with manually entered monthly portfolio values
-6. Package a macOS `.app`
+1. Start a JavaFX desktop shell: completed
+2. Initialize SQLite database with Flyway: completed
+3. Add asset and transaction persistence: completed
+4. Implement transaction entry flow: completed
+5. Show transaction-derived invested value in the dashboard: completed
+6. Package a macOS `.app`: next milestone
 
 See [Implementation Roadmap](docs/roadmap/implementation-roadmap.md).
+
+## Local Run Modes
+
+Normal local run preserves and migrates the existing local database:
+
+`mvn javafx:run`
+
+Development reset run drops and recreates the local database before startup:
+
+`mvn javafx:run -Plocal-reset`
+
+Use `local-reset` only for disposable development data. Build/default runtime uses managed database migrations without dropping data.
+
+## Local Data Removal
+
+DeskFolio stores local data under:
+
+`~/Library/Application Support/DeskFolio`
+
+A future Settings section will provide an uninstall-data tool to delete that app-owned directory, including `deskfolio.sqlite`, after explicit user confirmation. This is intended for users who want to remove local data before uninstalling the app.

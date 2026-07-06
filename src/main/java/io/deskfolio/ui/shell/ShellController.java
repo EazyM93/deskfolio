@@ -48,7 +48,7 @@ public final class ShellController {
         this(NavigationRegistry.defaultRegistry());
     }
 
-    ShellController(NavigationRegistry navigationRegistry) {
+    public ShellController(NavigationRegistry navigationRegistry) {
         this.navigationRegistry = navigationRegistry;
     }
 

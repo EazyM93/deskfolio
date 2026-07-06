@@ -27,7 +27,6 @@ Help the user manage a personal investment portfolio locally, starting with ETFs
 - Ships as a macOS `.app`.
 - Starts with a double click.
 - Tracks assets and transactions.
-- Supports manually entered historical monthly values.
 - Presents a modern JavaFX UI.
 
 ## First Supported Asset Types

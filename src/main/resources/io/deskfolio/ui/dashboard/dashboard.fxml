@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/26"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="io.deskfolio.ui.dashboard.DashboardViewController"
+      styleClass="dashboard-view"
+      spacing="18">
+    <HBox spacing="16" styleClass="dashboard-summary">
+        <VBox spacing="4" styleClass="summary-block">
+            <Label text="Total invested" styleClass="summary-label"/>
+            <Label fx:id="totalInvestedLabel" styleClass="summary-value"/>
+        </VBox>
+        <VBox spacing="4" styleClass="summary-block">
+            <Label text="Tracked assets" styleClass="summary-label"/>
+            <Label fx:id="assetCountLabel" styleClass="summary-value"/>
+        </VBox>
+    </HBox>
+
+    <VBox fx:id="emptyState" spacing="6" styleClass="empty-state">
+        <Label text="No invested value yet" styleClass="empty-state-title"/>
+        <Label text="Use Transactions to create an asset and add the first buy or accumulation transaction."
+               styleClass="empty-state-detail"
+               wrapText="true"/>
+    </VBox>
+
+    <LineChart fx:id="assetInvestmentChart" animated="false" createSymbols="true" styleClass="portfolio-chart">
+        <xAxis>
+            <CategoryAxis label="Month"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Invested value"/>
+        </yAxis>
+    </LineChart>
+
+    <VBox spacing="12">
+        <Label text="Assets" styleClass="section-title"/>
+        <FlowPane fx:id="assetCards" hgap="12" vgap="12"/>
+    </VBox>
+    <padding>
+        <Insets top="0" right="0" bottom="0" left="0"/>
+    </padding>
+</VBox>

@@ -14,6 +14,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>26</maven.compiler.release>
+        <deskfolio.database.mode>managed</deskfolio.database.mode>
         <javafx.version>26</javafx.version>
         <junit.version>5.13.4</junit.version>
         <assertj.version>3.27.7</assertj.version>
@@ -102,6 +103,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.3</version>
+                <configuration>
+                    <argLine>--enable-native-access=ALL-UNNAMED</argLine>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.openjfx</groupId>
@@ -110,10 +114,26 @@
                 <configuration>
                     <mainClass>io.deskfolio.DeskFolioApplication</mainClass>
                     <options>
-                        <option>--enable-native-access=javafx.graphics</option>
+                        <option>--enable-native-access=javafx.graphics,ALL-UNNAMED</option>
+                        <option>-Ddeskfolio.database.mode=${deskfolio.database.mode}</option>
                     </options>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>local-reset</id>
+            <properties>
+                <deskfolio.database.mode>local-reset</deskfolio.database.mode>
+            </properties>
+        </profile>
+        <profile>
+            <id>managed-db</id>
+            <properties>
+                <deskfolio.database.mode>managed</deskfolio.database.mode>
+            </properties>
+        </profile>
+    </profiles>
 </project>

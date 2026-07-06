@@ -34,6 +34,13 @@ A task is `DONE` when:
 - `.ai/` project memory is updated.
 - Task status is updated.
 
+## Local Run Modes
+
+- `mvn javafx:run`: normal managed database mode. Flyway migrates the existing local database without dropping data.
+- `mvn javafx:run -Plocal-reset`: development reset mode. The app runs Flyway `clean` before `migrate`, dropping local data and recreating the schema.
+
+Use reset mode only for local development/testing data. Packaged or default runtime must use managed database mode.
+
 ## Git Strategy
 
 Use a simple solo-friendly trunk strategy:

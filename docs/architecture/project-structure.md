@@ -73,6 +73,20 @@ deskfolio/
 - `src/test/java`: unit and integration tests.
 - `src/test/resources`: test fixtures and test-only configuration.
 
+Current source packages:
+
+- `io.deskfolio.configuration`: application paths and runtime configuration.
+- `io.deskfolio.domain`: core domain records.
+- `io.deskfolio.dto`: boundary request/result objects.
+- `io.deskfolio.navigation`: shell navigation registry.
+- `io.deskfolio.persistence.sqlite`: SQLite connection and Flyway migration infrastructure.
+- `io.deskfolio.repository`: repository contracts.
+- `io.deskfolio.service`: application use cases.
+- `io.deskfolio.ui.dashboard`: JavaFX dashboard MVP.
+- `io.deskfolio.ui.shell`: JavaFX application shell.
+- `io.deskfolio.ui.transaction`: transaction entry UI.
+- `io.deskfolio.validation`: user-presentable validation errors.
+
 ## Documentation Directory Intent
 
 - `docs/architecture`: long-lived architectural guidance and ADRs.

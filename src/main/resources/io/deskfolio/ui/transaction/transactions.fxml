@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/26"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="io.deskfolio.ui.transaction.TransactionViewController"
+      styleClass="transaction-view"
+      spacing="18">
+    <Label text="Add transaction" styleClass="section-title"/>
+
+    <GridPane hgap="16" vgap="12" styleClass="transaction-form">
+        <Label text="Date" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="transactionDatePicker" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Movement" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+        <ComboBox fx:id="movementTypeComboBox" maxWidth="Infinity" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+        <Label text="Category" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="categoryComboBox" maxWidth="Infinity" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Value" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <TextField fx:id="valueField" promptText="1000.00" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+        <Label text="Currency" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="currencyComboBox" maxWidth="Infinity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Asset" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="existingAssetComboBox" maxWidth="Infinity" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+    </GridPane>
+
+    <CheckBox fx:id="createNewAssetCheckBox" text="Create new asset"/>
+
+    <VBox fx:id="newAssetFields" spacing="12" styleClass="new-asset-fields">
+        <padding>
+            <Insets top="6" right="0" bottom="0" left="0"/>
+        </padding>
+        <GridPane hgap="16" vgap="12" styleClass="transaction-form">
+            <Label text="Asset name" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="assetNameField" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+
+            <Label text="Ticker" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="tickerField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="ISIN" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+            <TextField fx:id="isinField" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+            <Label text="Asset type" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="assetTypeComboBox" maxWidth="Infinity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <CheckBox fx:id="etfCheckBox" text="ETF" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+            <TextField fx:id="terField" promptText="TER %" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+        </GridPane>
+    </VBox>
+
+    <Button text="Save transaction"
+            mnemonicParsing="false"
+            onAction="#saveTransaction"
+            styleClass="primary-button"/>
+    <Label fx:id="messageLabel" styleClass="message-label" wrapText="true"/>
+</VBox>

@@ -25,7 +25,7 @@ Status: ✅ Completed
 
 ## Milestone 2: Local Database Foundation
 
-Status: ⚪ Not Started
+Status: ✅ Completed
 
 - SQLite connection configuration
 - Flyway migration runner
@@ -35,7 +35,7 @@ Status: ⚪ Not Started
 
 ## Milestone 3: Asset and Transaction Vertical Slice
 
-Status: ⚪ Not Started
+Status: ✅ Completed
 
 - Asset domain model
 - Transaction domain model
@@ -46,10 +46,9 @@ Status: ⚪ Not Started
 
 ## Milestone 4: Dashboard MVP
 
-Status: ⚪ Not Started
+Status: ✅ Completed
 
-- Monthly manual valuations
-- Total portfolio value
+- Transaction-derived invested value
 - Asset cards
 - Main chart
 - Empty state
@@ -72,3 +71,4 @@ Status: ⚪ Not Started
 - Export database
 - Backup location
 - Import design before implementation
+- Uninstall data tool to delete the app data directory and SQLite database

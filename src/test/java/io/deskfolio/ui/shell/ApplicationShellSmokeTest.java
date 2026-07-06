@@ -17,6 +17,8 @@ class ApplicationShellSmokeTest {
     @Test
     void shellResourcesAreAvailableOnClasspath() {
         assertThat(ShellController.class.getResource("shell.fxml")).isNotNull();
+        assertThat(ApplicationShellSmokeTest.class.getResource("/io/deskfolio/ui/dashboard/dashboard.fxml")).isNotNull();
+        assertThat(ApplicationShellSmokeTest.class.getResource("/io/deskfolio/ui/transaction/transactions.fxml")).isNotNull();
         assertThat(ApplicationShellSmokeTest.class.getResource("/io/deskfolio/theme/dark-theme.css")).isNotNull();
         assertThat(ApplicationShellSmokeTest.class.getResource("/logback.xml")).isNotNull();
     }

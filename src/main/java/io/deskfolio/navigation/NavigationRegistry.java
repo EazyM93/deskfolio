@@ -1,10 +1,12 @@
 package io.deskfolio.navigation;
 
 import io.deskfolio.ui.shell.PlaceholderViewFactory;
+import javafx.scene.Node;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 public final class NavigationRegistry {
 
@@ -19,11 +21,26 @@ public final class NavigationRegistry {
     }
 
     public static NavigationRegistry defaultRegistry() {
+        return defaultRegistry(
+                () -> PlaceholderViewFactory.create("Dashboard", "Portfolio overview will land in Milestone 4."),
+                () -> PlaceholderViewFactory.create(
+                "Transactions",
+                "Transaction entry starts in Milestone 3."
+        ));
+    }
+
+    public static NavigationRegistry defaultRegistry(
+            Supplier<Node> dashboardViewFactory,
+            Supplier<Node> transactionViewFactory
+    ) {
+        Objects.requireNonNull(dashboardViewFactory, "dashboardViewFactory");
+        Objects.requireNonNull(transactionViewFactory, "transactionViewFactory");
+
         return new NavigationRegistry(List.of(
                 new NavigationItem("dashboard", "Dashboard", "dashboard",
-                        () -> PlaceholderViewFactory.create("Dashboard", "Portfolio overview will land in Milestone 4.")),
+                        dashboardViewFactory),
                 new NavigationItem("transactions", "Transactions", "transactions",
-                        () -> PlaceholderViewFactory.create("Transactions", "Transaction entry starts in Milestone 3.")),
+                        transactionViewFactory),
                 new NavigationItem("assets", "Assets", "assets",
                         () -> PlaceholderViewFactory.create("Assets", "Asset management starts in Milestone 3.")),
                 new NavigationItem("settings", "Settings", "settings",

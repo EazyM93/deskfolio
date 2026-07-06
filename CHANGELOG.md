@@ -12,7 +12,7 @@ Codex must not update this file automatically after every implementation task. R
 
 ## Versions
 
-### 🔵 0.1.0 - Planned
+### 🔵 0.1.0 - In Progress
 
 Initial planned release for the first usable local-first DeskFolio MVP.
 
@@ -21,9 +21,8 @@ Summary:
 - Native macOS JavaFX application shell.
 - SQLite local database.
 - Asset and transaction management foundation.
-- Manual monthly portfolio valuations.
-- Dashboard MVP.
-- macOS `.app` packaging.
+- Transaction-derived dashboard MVP.
+- macOS `.app` packaging pending.
 
 Details:
 

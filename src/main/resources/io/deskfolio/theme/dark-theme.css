@@ -97,6 +97,25 @@
     -fx-padding: 32;
 }
 
+.combo-box .list-cell {
+    -fx-text-fill: -df-text-primary;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: -df-surface;
+    -fx-border-color: -df-border;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: -df-surface;
+    -fx-text-fill: -df-text-primary;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: -df-accent-muted;
+    -fx-text-fill: -df-text-primary;
+}
+
 .placeholder-view {
     -fx-max-width: 640;
 }
@@ -110,4 +129,161 @@
 .placeholder-detail {
     -fx-text-fill: -df-text-secondary;
     -fx-font-size: 14px;
+}
+
+.transaction-view {
+    -fx-max-width: 860;
+}
+
+.section-title {
+    -fx-text-fill: -df-text-primary;
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+}
+
+.transaction-form Label,
+.transaction-view CheckBox {
+    -fx-text-fill: -df-text-secondary;
+}
+
+.transaction-form TextField,
+.transaction-form DatePicker,
+.transaction-form ComboBox {
+    -fx-pref-width: 190;
+}
+
+.transaction-form TextField,
+.transaction-form .date-picker,
+.transaction-form .combo-box {
+    -fx-background-color: -df-background;
+    -fx-background-radius: 6;
+    -fx-border-color: -df-border;
+    -fx-border-radius: 6;
+    -fx-text-fill: -df-text-primary;
+}
+
+.new-asset-fields {
+    -fx-border-color: -df-border;
+    -fx-border-radius: 8;
+    -fx-padding: 16;
+}
+
+.primary-button {
+    -fx-background-color: -df-accent;
+    -fx-background-radius: 6;
+    -fx-padding: 10 14;
+    -fx-text-fill: white;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-opacity: 0.92;
+}
+
+.message-label {
+    -fx-text-fill: -df-text-secondary;
+}
+
+.error-message {
+    -fx-text-fill: #ff8a8a;
+}
+
+.success-message {
+    -fx-text-fill: #7fdc9f;
+}
+
+.dashboard-view {
+    -fx-max-width: 980;
+}
+
+.dashboard-summary {
+    -fx-alignment: stretch;
+}
+
+.summary-block,
+.empty-state {
+    -fx-background-color: -df-surface-raised;
+    -fx-background-radius: 8;
+    -fx-border-color: -df-border;
+    -fx-border-radius: 8;
+    -fx-padding: 16;
+}
+
+.summary-block {
+    -fx-pref-width: 320;
+}
+
+.summary-label {
+    -fx-text-fill: -df-text-secondary;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+}
+
+.summary-value {
+    -fx-text-fill: -df-text-primary;
+    -fx-font-size: 26px;
+    -fx-font-weight: 800;
+}
+
+.summary-detail,
+.empty-state-detail {
+    -fx-text-fill: -df-text-secondary;
+}
+
+.empty-state-title {
+    -fx-text-fill: -df-text-primary;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+}
+
+.portfolio-chart {
+    -fx-pref-height: 260;
+    -fx-background-color: -df-surface-raised;
+    -fx-background-radius: 8;
+    -fx-border-color: -df-border;
+    -fx-border-radius: 8;
+    -fx-padding: 12;
+}
+
+.chart-plot-background {
+    -fx-background-color: -df-surface;
+}
+
+.chart-vertical-grid-lines,
+.chart-horizontal-grid-lines {
+    -fx-stroke: -df-border;
+}
+
+.axis {
+    -fx-tick-label-fill: -df-text-secondary;
+}
+
+.axis-label {
+    -fx-text-fill: -df-text-secondary;
+}
+
+.asset-card {
+    -fx-background-color: -df-surface-raised;
+    -fx-background-radius: 8;
+    -fx-border-color: -df-border;
+    -fx-border-radius: 8;
+    -fx-padding: 14;
+    -fx-pref-width: 220;
+}
+
+.asset-card-title {
+    -fx-text-fill: -df-text-primary;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+}
+
+.asset-card-meta {
+    -fx-text-fill: -df-text-secondary;
+}
+
+.asset-card-value {
+    -fx-text-fill: -df-text-primary;
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
 }

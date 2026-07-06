@@ -20,13 +20,36 @@ Naming convention:
 
 `V<major>__<description>.sql`
 
-Examples for future implementation:
+Implemented migrations:
 
 - `V1__create_reference_tables.sql`
-- `V2__create_assets.sql`
-- `V3__create_transactions.sql`
+- `V2__create_assets_and_transactions.sql`
 
 Foreign keys must be enabled on each SQLite connection with `PRAGMA foreign_keys = ON`.
+
+## Local Database Path and Export
+
+The default runtime database file is:
+
+`~/Library/Application Support/DeskFolio/deskfolio.sqlite`
+
+The application creates the parent directory before running migrations. The database is intentionally a single SQLite file so Settings can later export it by copying that file to a user-selected destination. The default export directory is:
+
+`~/Library/Application Support/DeskFolio/Exports`
+
+Import behavior is intentionally not implemented in the foundation milestone and must be designed before code is added.
+
+Settings must later provide an uninstall-data action for users who want to remove DeskFolio completely. That action should delete the whole DeskFolio application data directory:
+
+`~/Library/Application Support/DeskFolio`
+
+This is a destructive user-triggered operation, separate from normal database migrations and separate from the development-only `local-reset` run mode. It must require explicit confirmation, close active database resources before deletion, and never delete files outside the DeskFolio application data directory.
+
+## Runtime Database Modes
+
+The default runtime mode is `managed`: Flyway migrates the existing database and preserves user data.
+
+For local development only, the Maven profile `local-reset` starts the app with `-Ddeskfolio.database.mode=local-reset`, which runs Flyway `clean` before `migrate`. This is intended for disposable testing data and must not be used for packaged builds.
 
 ## Conceptual Schema
 
@@ -79,9 +102,11 @@ Represents a financial instrument.
 | created_at | technical timestamp |
 | updated_at | technical timestamp |
 
+Implemented in migration `V2__create_assets_and_transactions.sql`.
+
 ### movement_type
 
-Reference table for buy, sell, deposit, withdrawal and future movement types.
+Reference table for the supported MVP movement types: Buy, Sell and Accumulate.
 
 | Field | Notes |
 |---|---|
@@ -108,35 +133,23 @@ Stores user-entered movements.
 | id | primary key |
 | portfolio_id | references portfolio |
 | transaction_date | local date |
-| asset_id | optional for cash-only future movements, required for asset trades in MVP |
+| asset_id | required for asset trades in MVP |
 | movement_type_id | references movement_type |
 | category_id | references transaction_category |
-| value_amount | fixed-scale decimal text or integer minor units |
+| value_minor_units | integer minor units using the selected currency |
 | currency_id | references currency |
 | created_at | technical timestamp |
 | updated_at | technical timestamp |
 
-### asset_monthly_valuation
+Implemented in migration `V2__create_assets_and_transactions.sql`.
 
-Stores manually entered historical values used by the dashboard chart and asset cards.
-
-| Field | Notes |
-|---|---|
-| id | primary key |
-| portfolio_id | references portfolio |
-| asset_id | references asset |
-| valuation_month | month identifier, e.g. first day of month |
-| value_amount | fixed-scale decimal text or integer minor units |
-| currency_id | references currency |
-| created_at | technical timestamp |
-| updated_at | technical timestamp |
-
-Unique constraint: `(portfolio_id, asset_id, valuation_month)`.
+The current implementation stores monetary values as `value_minor_units` using the selected currency. UI decimal input is converted to integer minor units before persistence.
 
 ## Future Tables
 
 Do not implement these until needed, but preserve room for them:
 
+- `asset_valuation` if future product design needs market or user-provided valuations
 - `dividend`
 - `tax_event`
 - `fee`
