@@ -17,7 +17,7 @@ It intentionally contains no application implementation code yet. The current re
 - Feature specifications
 - ADRs
 - Development workflow
-- Claude Code operating context
+- Codex operating context
 - Local-only AI workspace structure
 
 ## 🏗 Architecture Summary
@@ -54,7 +54,8 @@ Each dependency is explained in [Dependency Strategy](docs/architecture/dependen
 
 ## 📚 Key Documents
 
-- [CLAUDE.md](CLAUDE.md): permanent engineering handbook for Claude Code and developers
+- [CODEX.md](CODEX.md): permanent engineering handbook for Codex and developers
+- [CLAUDE.md](CLAUDE.md): compatibility handbook for developers who use Claude
 - [Architecture Overview](docs/architecture/overview.md)
 - [Project Structure](docs/architecture/project-structure.md)
 - [Database Design](docs/specs/database/database-design.md)
@@ -71,13 +72,14 @@ Each dependency is explained in [Dependency Strategy](docs/architecture/dependen
 
 ## 🧠 AI-Assisted Development
 
-DeskFolio is optimized for long-term Claude Code collaboration.
+DeskFolio is optimized for long-term Codex collaboration.
 
-Permanent project guidance lives in `CLAUDE.md` and committed documentation under `docs/`.
+Permanent project guidance lives in `CODEX.md` and committed documentation under `docs/`. `CLAUDE.md` remains available for developers who use Claude.
 
 Local AI memory lives in ignored directories:
 
 - `.ai/`
+- `.codex/`
 - `.claude/`
 
 These directories are intentionally excluded from Git so task state, session summaries, prompts and planning notes remain local-only.

@@ -8,7 +8,7 @@ Use `CHANGELOG.md` for a short cross-version summary. Use one file in this direc
 
 Release notes are permanent project documentation, but they are not task memory.
 
-Claude Code must update release notes only when the user explicitly asks for changelog or release note updates. They must not be modified automatically after normal feature work.
+Codex must update release notes only when the user explicitly asks for changelog or release note updates. They must not be modified automatically after normal feature work.
 
 ## Naming Convention
 

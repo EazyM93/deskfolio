@@ -8,6 +8,7 @@ This repository separates committed product documentation from local-only AI ope
 deskfolio/
   pom.xml
   README.md
+  CODEX.md
   CLAUDE.md
   docs/
     architecture/
@@ -56,9 +57,13 @@ deskfolio/
     prompts/
     templates/
     rules.md
+  .codex/
+    prompts/
+    templates/
+    rules.md
 ```
 
-`.ai/` and `.claude/` are ignored by Git. They exist to help Claude Code resume work across sessions without polluting the permanent repository history.
+`.ai/`, `.codex/` and `.claude/` are ignored by Git. They exist to help AI agents resume work across sessions without polluting the permanent repository history. Codex is the primary agent workspace; `.claude/` is kept only for developers who use Claude.
 
 ## Source Directory Intent
 
@@ -83,6 +88,6 @@ When implementation begins:
 
 ## Rule
 
-If information is useful to all future developers, commit it under `docs/` or `CLAUDE.md`.
+If information is useful to all future developers, commit it under `docs/` or `CODEX.md`. Keep `CLAUDE.md` aligned only when compatibility guidance for Claude changes.
 
-If information is temporary, session-specific, task-progress-related or AI-operational, keep it in `.ai/` or `.claude/`.
+If information is temporary, session-specific, task-progress-related or AI-operational, keep it in `.ai/` or `.codex/`. Use `.claude/` only for Claude-specific local files.

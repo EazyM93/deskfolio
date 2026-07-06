@@ -9,7 +9,7 @@ Status: ✅ Completed
 - Architecture overview
 - Database design
 - UI specification
-- Claude handbook
+- Codex handbook
 - Local AI memory structure
 
 ## Milestone 1: Application Shell

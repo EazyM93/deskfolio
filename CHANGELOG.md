@@ -8,7 +8,7 @@ Detailed release notes live in `docs/releases/`.
 
 The changelog and release notes must be created or modified only when explicitly requested by the user.
 
-Claude Code must not update this file automatically after every implementation task. Routine development progress belongs in the local AI workspace under `.ai/`.
+Codex must not update this file automatically after every implementation task. Routine development progress belongs in the local AI workspace under `.ai/`.
 
 ## Versions
 

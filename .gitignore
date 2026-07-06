@@ -31,6 +31,7 @@ logs/
 # Local-only AI workspace
 .ai/
 .claude/
+.codex/
 *.ai.log
 *session-summary*
 *task-tracking*
